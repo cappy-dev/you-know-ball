@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You Know Ball</title>
+<meta name="description" content="Finish the quote. Prove you know ball.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- faint half-court lines, pure decoration -->
+<svg class="court" viewBox="0 0 900 1600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <circle cx="450" cy="1400" r="260" />
+  <rect x="230" y="1400" width="440" height="420" />
+  <circle cx="450" cy="1400" r="80" />
+  <circle cx="450" cy="1400" r="7" />
+</svg>
+
+<main class="stage">
+
+  <section id="play" class="panel" hidden>
+    <header class="hud">
+      <span class="brand">YOU KNOW BALL</span>
+      <span class="streak" id="streak">streak 0</span>
+    </header>
+
+    <p class="eyebrow">complete the quote</p>
+    <h1 class="first-half" id="firstHalf">loading…</h1>
+
+    <form id="guessForm" autocomplete="off">
+      <label class="visually-hidden" for="guess">The rest of the quote</label>
+      <input id="guess" name="guess" type="text" placeholder="finish it off" autocomplete="off" spellcheck="false">
+      <button type="submit">submit</button>
+    </form>
+    <p class="verdict" id="verdict" role="status" aria-live="polite"></p>
+
+    <div class="foot-row">
+      <button type="button" class="ghost" id="skipBtn">skip</button>
+      <button type="button" class="ghost" id="revealBtn">give up</button>
+    </div>
+    <p class="credit">quotes via <a href="https://dummyjson.com/quotes" rel="noopener">dummyjson</a></p>
+  </section>
+
+  <section id="win" class="panel win" hidden>
+    <div class="confetti" aria-hidden="true"></div>
+    <h2 class="big" aria-label="You know ball">
+      <span>YOU</span><span>KNOW</span><span>BALL</span>
+    </h2>
+    <p class="full-quote" id="fullQuote"></p>
+    <p class="author" id="author"></p>
+    <button type="button" class="cta" id="nextBtn">next one</button>
+    <p class="credit">streak <span id="winStreak">1</span> · quotes via <a href="https://dummyjson.com/quotes" rel="noopener">dummyjson</a></p>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
