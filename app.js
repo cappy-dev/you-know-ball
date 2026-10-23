@@ -122,8 +122,9 @@ function check(e) {
   } else {
     play.classList.add("shake");
     setTimeout(() => play.classList.remove("shake"), 400);
-    verdict.className = "verdict bad";
-    verdict.textContent = got.replace(/\s/g, "").length > 6 && 1 - wordDist / wordLen >= 0.6
+    const isClose = got.replace(/\s/g, "").length > 6 && 1 - wordDist / wordLen >= 0.6;
+    verdict.className = isClose ? "verdict close" : "verdict bad";
+    verdict.textContent = isClose
       ? "so close. it's \u201c" + current.second + "\u201d"
       : "not quite. try again.";
     $("guess").focus();
